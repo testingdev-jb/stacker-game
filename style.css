@@ -60,18 +60,13 @@ h1 {
 .game-board {
   position: relative;
   margin-bottom: 8px;
-<<<<<<< HEAD
   width: calc((48px * 6) + 4px); /* Set the width of game-board */
   margin: 0 auto; /* Center the game-board */
   padding: 2px;
-=======
-  border: 2px solid rgb(0, 23, 50);
->>>>>>> stacker-game/main
 }
 
 .game-container {
   width: calc((48px * 6) + 4px);
-<<<<<<< HEAD
   position: relative;
 }
 
@@ -207,16 +202,6 @@ h1 {
   transform: scale(0.95);
   transition: transform 0.1s ease-in-out;
 }
-=======
-}
-
-.grid {
-  width: calc((48px * 6) + 4px);
-  display: flex;
-  flex-wrap: wrap;
-}
-
->>>>>>> stacker-game/main
 .cell {
   width: 48px;
   height: 48px;
