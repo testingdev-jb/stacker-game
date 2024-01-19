@@ -1,0 +1,249 @@
+/*
+  black: rgb(0, 23, 50); #001732;
+  orange: rgb(241, 117, 78); #f1754e;
+  bg-color: rgb(216, 238, 232);  #d8eee8;
+  bg-dark-color: rgb(203, 224, 221); #cbe0dd;
+  clicked-cell: rgb(157, 197, 199); #9dc5c7;
+  transparent red: rgba(241, 117, 78, 0.7);
+
+  font-family: 'Darker Grotesque', sans-serif;
+  font-family: 'Press Start 2P', cursive;
+*/
+
+/* # Generic */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 16px;
+  font-family: 'Darker Grotesque', sans-serif;
+  line-height: 1;
+  color: rgb(0, 23, 50);
+  background-color: rgb(216, 238, 232);
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.btn {
+  font-size: 24px;
+  font-family: 'Darker Grotesque', sans-serif;
+  padding: 4px 20px 8px 20px;
+  /* width: 50%; */
+  cursor: pointer;
+  text-transform: uppercase;
+  border: 2px solid rgb(0, 23, 50);
+}
+
+.btn:hover {
+  background-color: rgb(203, 224, 221);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  font-size: 32px;
+  /* font-weight: 700; */
+}
+
+/* # Game grid */
+
+.game-board {
+  position: relative;
+  margin-bottom: 8px;
+  width: calc((48px * 6) + 4px); /* Set the width of game-board */
+  margin: 0 auto; /* Center the game-board */
+  padding: 2px;
+}
+
+.game-container {
+  width: calc((48px * 6) + 4px);
+  position: relative;
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* ... Previous CSS Rules ... */
+
+.game-container {
+  width: calc((48px * 6) + 4px);
+  position: relative; 
+}
+
+.difficulty-overlay {
+  padding: auto;
+  width: 100vw; /* Match the width of the grid */
+  height: 100vh; /* Increase the height to cover the button as well */
+  background-color: rgb(179, 255, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  opacity: 1;
+  z-index: 1;
+}
+
+.fadeOut {
+  animation: fadeOut 1s forwards; /* Apply the fadeOut animation */
+}
+
+.hidden {
+  display: none;
+}
+
+.difficulty-text {
+  color: #fff;
+  text-shadow: 2px 2px 4p rgba(0, 0, 0, 0.8);
+  font-style: oblique;
+  font-family: 'Press Start 2P', cursive;
+  font-size:  52px;
+  padding: 52px;
+  flex-wrap: wrap;
+  animation: fadeIn 1s ease-in-out;
+  animation: glitch 2.5s infinite;
+}
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  2% {
+    transform: translate(-5px, 5px);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  4% {
+    transform: translate(5px, -5px);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  6% {
+    transform: translate(0);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  8% {
+    transform: translate(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  10% {
+    transform: translate(-5px, 5px);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  12% {
+    transform: translate(5px, -5px);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  14% {
+    transform: translate(0);
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  100% {
+    transform: translate(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.difficulty-btns {
+  gap: 12px;
+}
+
+.difficulty-btn {
+  font-size: 18px;
+  padding: 8px 16px;
+  margin: 8px;
+  background-color: rgb(237, 241, 241);
+  color: rgb(46, 75, 235);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Press Start 2P';
+  cursor: pointer;
+  transition:  transform 0.3 ease-in-out;
+}
+
+.difficulty-btn:hover {
+  background-color: #0df76e;
+  color: #000000;
+}
+
+.difficulty-btn:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease-in-out;
+}
+.cell {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  outline: 1px dashed black;
+}
+
+.bar {
+  background-color: #f1754e;
+  border-radius: 8px;
+  border: 2px solid rgb(0, 23, 50);
+}
+
+/* # Game over */
+.end-game-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(241, 117, 78, 0.7);
+
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 16px;
+}
+
+.win {
+  background-color: rgba(78, 241, 187, 0.7);
+}
+
+.end-game-text {
+  font-size: 48px;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+}
+
+/* # Utilities */
+
+.hidden {
+  display: none;
+}
